@@ -1,0 +1,39 @@
+#login-box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#login-box .form-input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#login-box .box-header h1 {
+  color: gray;
+  font-size: 20px;
+  line-height: 50px;
+  margin: 0px;
+}
+
+.fa-exclamation{
+  margin-right: 5px;
+}
+
+.login-btn{
+  background-color: $texas-orange;
+  color: white;
+  border: none;
+  outline: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  height: 30px;
+  width: 95%;
+}
+
+#email-form-group{
+  margin-top: 20px;
+}

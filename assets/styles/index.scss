@@ -1,2 +1,58 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'colors';
+@import 'login';
+
+.brand {
+  color: $texas-orange;
+  font-size: 8px;
+}
+
+.box {
+  border-left: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
+  border-top: 1px solid $light-gray;
+  height: 300px;
+  width: 300px;
+}
+
+.form-control{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80% !important;
+}
+
+.box-footer {
+  background-color: $light-gray;
+  bottom: 0;
+  height: 50px;
+  position: absolute;
+  width: 300px;
+}
+
+.box-body{
+  height: 200px;
+}
+.box-header {
+  border-bottom: 1px solid $light-gray;
+  height: 50px;
+  line-height: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+.email-group{
+  margin-top: 40px;
+}
+
+.input-group{
+  margin-left: 40px;
+}
+
+.form-input {
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  height: 40px;
+  outline: none;
+}
