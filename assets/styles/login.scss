@@ -23,15 +23,22 @@
 
 .login-btn{
   background-color: $texas-orange;
-  color: white;
-  border: none;
-  outline: none;
+  border: 0;
+  color: $white;
   display: block;
+  height: 30px;
+  outline: none;
   margin-right: auto;
   margin-left: auto;
   margin-top: 10px;
-  height: 30px;
   width: 95%;
+}
+
+.signup-link{
+  color: $texas-orange;
+  position: relative;
+  top: 30px;
+  left: 230px;
 }
 
 #email-form-group{

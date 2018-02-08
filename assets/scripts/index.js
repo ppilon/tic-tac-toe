@@ -2,9 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const events = require('./authentication/events.js')
-
-
+const UserEvents = require('./user/events.js')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -16,7 +14,11 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-
 $(() => {
-  $('#login-form').on('submit', events.onSignIn)
+  $('#login-form').on('submit', UserEvents.onSignIn)
+  $('#signup-form').on('submit', UserEvents.onSignUp)
+  $('.signup-link').on('click', function () {
+    $('#login-box').toggle()
+    $('#signup-box').toggle()
+  })
 })
