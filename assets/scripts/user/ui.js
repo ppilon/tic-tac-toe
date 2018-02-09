@@ -4,8 +4,9 @@ const notifications = require('../notifications')
 const onSignInSuccess = function (data) {
   $('#login-box').toggle()
   notifications.newNotification('success', 'Successful Login')
-  store.user.login(data.user.email, data.user.password, data.user.token)
-  $('#user-info').text('User: ' + store.user.email)
+  store.user.login(data.user.email, data.user.password, data.user.token, data.user.id)
+  $('.user-email').text(store.user.email)
+  $('.user-nav').toggle()
 }
 const onSignInError = function (jqXHR, textStatus, errorThrown) {
   notifications.newNotification('danger', 'Username or Password Incorrect')
@@ -23,9 +24,27 @@ const onSignUpError = function (jqXHR, textStatus, errorThrown) {
   notifications.newNotification('danger', 'Signup Failed')
 }
 
+const onSignOutSuccess = function () {
+  $('#login-box').toggle()
+  $('.user-nav').toggle()
+  notifications.newNotification('success', 'Sign Out Successful')
+}
+
+const onChangePasswordSuccess = function () {
+  $('#change-password-modal').modal('hide')
+  notifications.newNotification('success', 'Change Password Successful')
+}
+
+const onChangePasswordError = function () {
+  $('.message').text('Error Changing Password')
+}
+
 module.exports = {
   onSignInSuccess,
   onSignInError,
   onSignUpSuccess,
-  onSignUpError
+  onSignUpError,
+  onSignOutSuccess,
+  onChangePasswordSuccess,
+  onChangePasswordError
 }

@@ -21,4 +21,6 @@ $(() => {
     $('#login-box').toggle()
     $('#signup-box').toggle()
   })
+  $('#change-pass-form').on('submit', UserEvents.onChangePassword)
+  $('#sign-out').on('click', UserEvents.onSignOut)
 })

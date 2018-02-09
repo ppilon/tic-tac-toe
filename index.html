@@ -25,9 +25,16 @@
             <a class="navbar-brand float-right" href="#">TIC TAC TOE<span class="brand"> PILON INC </span></a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right ">
-              <li> <a href="#" id="user-info"></a> </li>
-            </ul>
+            <ul class="nav navbar-nav navbar-right user-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user-email"> </span> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" class="change-password" data-toggle="modal" data-target="#change-password-modal"><span class="icon"><i class="fas fa-key"></i></span>Change Password</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#" id="sign-out"><span class="icon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
+                </ul>
+            </li>
+          </ul>
           </div>
         </div>
       </nav>
@@ -35,6 +42,29 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
+          <div class="modal fade" tabindex="-1" role="dialog" id="change-password-modal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <form id="change-pass-form">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Change Password</h4>
+                  </div>
+                  <div class="modal-body">
+                    <label> Old Password </label>
+                    <input type="password" class="form-control" name="passwords[old]">
+                    <label> New Password </label>
+                    <input type="password" class="form-control" name="passwords[new]">
+                    <span class="message"> </span>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
           <div class="notifications"></div>
           <div class="box" id="login-box">
             <form id="login-form">

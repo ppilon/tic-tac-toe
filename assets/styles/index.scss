@@ -57,3 +57,18 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   height: 40px;
   outline: none;
 }
+
+.user-nav{
+  display: none;
+}
+
+.icon{
+  margin-right: 5px;
+}
+
+.message{
+  position: relative;
+  top: 10px;
+  left: 360px;
+  color: red;
+}

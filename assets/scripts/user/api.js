@@ -1,5 +1,7 @@
 const config = require('../config')
 
+const userObject = require('../user.js')
+
 const signIn = function (data) {
   return $.ajax({
     url: config.apiOrigins.production + '/sign-in',
@@ -22,7 +24,32 @@ const signUp = function (data) {
   })
 }
 
+const signOut = function () {
+  return $.ajax({
+    url: config.apiOrigins.production + '/sign-out/' + userObject.user.id,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + userObject.user.token
+    }
+  })
+}
+
+const changePassword = function (data) {
+  return $.ajax({
+    url: config.apiOrigins.production + '/change-password/' + userObject.user.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + userObject.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signIn,
-  signUp
+  signUp,
+  signOut,
+  changePassword
 }
