@@ -2,11 +2,10 @@ const store = require('../user')
 const notifications = require('../notifications')
 
 const onSignInSuccess = function (data) {
-  $('#login-box').toggle()
   notifications.newNotification('success', 'Successful Login')
   store.user.login(data.user.email, data.user.password, data.user.token, data.user.id)
   $('.user-email').text(store.user.email)
-  $('.user-nav').toggle()
+  switchView()
 }
 const onSignInError = function (jqXHR, textStatus, errorThrown) {
   notifications.newNotification('danger', 'Username or Password Incorrect')
@@ -25,8 +24,7 @@ const onSignUpError = function (jqXHR, textStatus, errorThrown) {
 }
 
 const onSignOutSuccess = function () {
-  $('#login-box').toggle()
-  $('.user-nav').toggle()
+  switchView()
   notifications.newNotification('success', 'Sign Out Successful')
 }
 
@@ -37,6 +35,12 @@ const onChangePasswordSuccess = function () {
 
 const onChangePasswordError = function () {
   $('.message').text('Error Changing Password')
+}
+
+const switchView = function () {
+  $('.game-view').toggle()
+  $('.auth-view').toggle()
+  $('.user-nav').toggle()
 }
 
 module.exports = {

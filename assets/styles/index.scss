@@ -13,8 +13,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   border-left: 1px solid $light-gray;
   border-right: 1px solid $light-gray;
   border-top: 1px solid $light-gray;
-  height: 300px;
-  width: 300px;
+  position: relative;
 }
 
 .form-control{
@@ -29,7 +28,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   bottom: 0;
   height: 50px;
   position: absolute;
-  width: 300px;
+  width: 100%;
 }
 
 .box-body{
@@ -62,8 +61,27 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   display: none;
 }
 
+// .auth-view{
+//   display: none;
+// }
+
+.game-piece{
+  border-bottom: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
+  height: 150px;
+}
+
+.game-view{
+  display: none;
+}
+
 .icon{
   margin-right: 5px;
+}
+
+#game-board{
+  width: 100%;
+  height: 80vh;
 }
 
 .message{
