@@ -61,14 +61,21 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   display: none;
 }
 
-// .auth-view{
-//   display: none;
-// }
-
 .game-piece{
   border-bottom: 1px solid $light-gray;
   border-right: 1px solid $light-gray;
   height: 150px;
+  line-height: 150px;
+  text-align: center;
+}
+
+.pieces{
+  display: none;
+}
+
+.game-menu{
+  text-align: center;
+  line-height: 50vh;
 }
 
 .game-view{
@@ -89,4 +96,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   top: 10px;
   left: 360px;
   color: red;
+}
+
+#game-board .box-footer{
+  color: $texas-orange;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.x-o{
+  font-size: 50px;
+  color: $texas-orange;
 }

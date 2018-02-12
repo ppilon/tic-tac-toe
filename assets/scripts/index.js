@@ -2,7 +2,8 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const UserEvents = require('./user/events.js')
+const UserEvents = require('./user/events')
+const GameEvents = require('./game/events')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -23,4 +24,6 @@ $(() => {
   })
   $('#change-pass-form').on('submit', UserEvents.onChangePassword)
   $('#sign-out').on('click', UserEvents.onSignOut)
+  $('.game-piece').on('click', GameEvents.onPlayerMove)
+  $('.game-menu a').on('click', GameEvents.onCreateGame)
 })
