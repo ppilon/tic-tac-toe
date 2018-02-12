@@ -18,11 +18,15 @@ const game = {
     this.player_x = data.game.player_x
     if (data.game.player_o !== null) {
       this.player_o = data.game.player_o
-    } else {
+    }
+    else {
       this.player_o = {
-        user_piece: ''
+
       }
     }
+  },
+  updateCells: function (data) {
+    this.cells = data.game.cells
   },
   switchTurn: function () {
     if (this.currentMove === 'x') {

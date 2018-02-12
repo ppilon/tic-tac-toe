@@ -8,8 +8,13 @@ const onCreateGameSuccess = function (data) {
 }
 
 const onPlayerMoveSuccess = function (data) {
-  gameData.game.setGameData(data)
-  $('#' + gameData.game.boardPiece).html('<span class="x-o">' + gameData.game.currentMove + '</span>')
+  gameData.game.updateCells(data)
+
+  if (gameData.game.currentMove === 'x') {
+    $('#' + gameData.game.boardPiece).html('<img src="' + gameData.game.player_x.user_piece + '" class="game-board-piece">' + '<span class="x-o">' + gameData.game.currentMove + '</span>')
+  } else {
+    $('#' + gameData.game.boardPiece).html('<img src="' + gameData.game.player_o.user_piece + '" class="game-board-piece">' + '<span class="x-o">' + gameData.game.currentMove + '</span>')
+  }
   if (gameData.game.hasWinner()) {
     $('#game-board .box-footer p').text('User' + ' ' + gameData.game.currentMove.toUpperCase() + ' ' + 'Wins')
   } else if (gameData.game.cells.every(checkForTie)) {

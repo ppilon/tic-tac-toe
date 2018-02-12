@@ -30,13 +30,13 @@ const onPlayerMove = function () {
   }
 }
 
-const onPieceSelect = function (event) {
-  console.log(gameObject.game)
+const onPieceSelect = function () {
   if (!gameObject.game.player_x.hasOwnProperty('user_piece')) {
     gameObject.game.player_x.user_piece = $(this).attr('src')
+    console.log('x ran')
   } else {
+    console.log('o ran')
     gameObject.game.player_o.user_piece = $(this).attr('src')
-    console.log(gameObject)
     ui.showGameBoard()
   }
 }

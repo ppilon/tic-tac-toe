@@ -106,12 +106,22 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .x-o{
-  font-size: 50px;
-  color: $texas-orange;
+  font-size: 40px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: white;
 }
 
 .user-icons{
   width: 50px;
   height: 50px;
   margin-right: 10px;
+}
+
+.game-board-piece{
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  filter: blur(0.7px)
 }
