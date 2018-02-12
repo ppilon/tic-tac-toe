@@ -30,7 +30,19 @@ const onPlayerMove = function () {
   }
 }
 
+const onPieceSelect = function (event) {
+  console.log(gameObject.game)
+  if (!gameObject.game.player_x.hasOwnProperty('user_piece')) {
+    gameObject.game.player_x.user_piece = $(this).attr('src')
+  } else {
+    gameObject.game.player_o.user_piece = $(this).attr('src')
+    console.log(gameObject)
+    ui.showGameBoard()
+  }
+}
+
 module.exports = {
   onCreateGame,
-  onPlayerMove
+  onPlayerMove,
+  onPieceSelect
 }

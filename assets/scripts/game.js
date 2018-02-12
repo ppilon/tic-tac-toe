@@ -1,13 +1,28 @@
 'use strict'
 
+const imgsPath = '/assets/imgs/'
+
 const game = {
   currentMove: 'x',
+  pieces: [
+    imgsPath + 'eagle.png',
+    imgsPath + 'owl.png',
+    imgsPath + 'parrot.png',
+    imgsPath + 'penguin.png',
+    imgsPath + 'zebra.png'
+  ],
   setGameData: function (data) {
     this.id = data.game.id
     this.cells = data.game.cells
     this.over = data.game.over
     this.player_x = data.game.player_x
-    this.player_y = data.game.player_o
+    if (data.game.player_o !== null) {
+      this.player_o = data.game.player_o
+    } else {
+      this.player_o = {
+        user_piece: ''
+      }
+    }
   },
   switchTurn: function () {
     if (this.currentMove === 'x') {

@@ -26,4 +26,5 @@ $(() => {
   $('#sign-out').on('click', UserEvents.onSignOut)
   $('.game-piece').on('click', GameEvents.onPlayerMove)
   $('.game-menu a').on('click', GameEvents.onCreateGame)
+  $('body').on('click', '.user-icons', GameEvents.onPieceSelect)
 })
