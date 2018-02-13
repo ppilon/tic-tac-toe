@@ -3,7 +3,7 @@ const notifications = require('../notifications')
 
 const onSignInSuccess = function (data) {
   notifications.newNotification('success', 'Successful Login')
-  store.user.login(data.user.email, data.user.password, data.user.token, data.user.id)
+  store.user.login(data.user.email, data.user.token, data.user.id)
   $('.user-email').text(store.user.email)
   switchView()
 }
@@ -25,6 +25,7 @@ const onSignUpError = function (jqXHR, textStatus, errorThrown) {
 
 const onSignOutSuccess = function () {
   switchView()
+  sessionStorage.removeItem('user')
   notifications.newNotification('success', 'Sign Out Successful')
 }
 
@@ -50,5 +51,6 @@ module.exports = {
   onSignUpError,
   onSignOutSuccess,
   onChangePasswordSuccess,
-  onChangePasswordError
+  onChangePasswordError,
+  switchView
 }

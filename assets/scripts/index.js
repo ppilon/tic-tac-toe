@@ -4,6 +4,8 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const UserEvents = require('./user/events')
 const GameEvents = require('./game/events')
+const userData = require('./user.js')
+const UserUi = require('./user/ui')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -16,6 +18,10 @@ $(() => {
 // require('./example')
 
 $(() => {
+
+  if (userData.user.loggedIn()) {
+    UserUi.switchView()
+  }
   $('#login-form').on('submit', UserEvents.onSignIn)
   $('#signup-form').on('submit', UserEvents.onSignUp)
   $('.signup-link').on('click', function () {
