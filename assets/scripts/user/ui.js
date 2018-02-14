@@ -1,5 +1,6 @@
 const store = require('../user')
 const notifications = require('../notifications')
+const GameEvents = require('../game/events')
 
 const onSignInSuccess = function (data) {
   notifications.newNotification('success', 'Successful Login')
@@ -16,6 +17,7 @@ const onSignUpSuccess = function () {
   $('#login-box').toggle()
   $('#signup-box').toggle()
   notifications.newNotification('success', 'Signup Successful')
+  GameEvents.onGetGames()
 }
 
 const onSignUpError = function (jqXHR, textStatus, errorThrown) {

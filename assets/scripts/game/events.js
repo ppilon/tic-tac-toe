@@ -41,8 +41,14 @@ const onPieceSelect = function () {
   }
 }
 
+const onGetGames = function () {
+  api.getGames()
+    .then(ui.onGetGamesSuccess)
+}
+
 module.exports = {
   onCreateGame,
   onPlayerMove,
-  onPieceSelect
+  onPieceSelect,
+  onGetGames
 }

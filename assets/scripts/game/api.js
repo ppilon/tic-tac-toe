@@ -14,6 +14,33 @@ const createGame = function () {
   })
 }
 
+const getGames = function () {
+  return $.ajax({
+    url: config.apiOrigins.production + '/games',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + userObject.user.token
+    }
+  })
+}
+
+const gameOver = function () {
+  return $.ajax({
+    url: config.apiOrigins.production + '/games/' + gameObject.game.id,
+    method: 'PATCH',
+    data: {
+      game: {
+        over: true
+      }
+    },
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + userObject.user.token
+    }
+  })
+}
+
 const updateGameBoard = function (data) {
   return $.ajax({
     url: config.apiOrigins.production + '/games/' + data.game.id,
@@ -28,5 +55,7 @@ const updateGameBoard = function (data) {
 
 module.exports = {
   createGame,
-  updateGameBoard
+  updateGameBoard,
+  getGames,
+  gameOver
 }

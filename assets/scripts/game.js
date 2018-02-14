@@ -18,11 +18,8 @@ const game = {
     this.player_x = data.game.player_x
     if (data.game.player_o !== null) {
       this.player_o = data.game.player_o
-    }
-    else {
-      this.player_o = {
-
-      }
+    } else {
+      this.player_o = {}
     }
   },
   updateCells: function (data) {

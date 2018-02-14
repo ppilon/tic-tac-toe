@@ -18,9 +18,9 @@ $(() => {
 // require('./example')
 
 $(() => {
-
   if (userData.user.loggedIn()) {
     UserUi.switchView()
+    GameEvents.onGetGames()
   }
   $('#login-form').on('submit', UserEvents.onSignIn)
   $('#signup-form').on('submit', UserEvents.onSignUp)
