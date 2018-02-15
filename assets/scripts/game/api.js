@@ -5,7 +5,7 @@ const config = require('../config')
 
 const createGame = function () {
   return $.ajax({
-    url: config.apiOrigins.production + '/games',
+    url: config.apiOrigin + '/games',
     method: 'POST',
     headers: {
       contentType: 'application/json',
@@ -16,7 +16,7 @@ const createGame = function () {
 
 const getGames = function () {
   return $.ajax({
-    url: config.apiOrigins.production + '/games',
+    url: config.apiOrigin + '/games',
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -27,7 +27,7 @@ const getGames = function () {
 
 const gameOver = function () {
   return $.ajax({
-    url: config.apiOrigins.production + '/games/' + gameObject.game.id,
+    url: config.apiOrigin + '/games/' + gameObject.game.id,
     method: 'PATCH',
     data: {
       game: {
@@ -43,7 +43,7 @@ const gameOver = function () {
 
 const updateGameBoard = function (data) {
   return $.ajax({
-    url: config.apiOrigins.production + '/games/' + data.game.id,
+    url: config.apiOrigin + '/games/' + data.game.id,
     method: 'PATCH',
     data,
     headers: {

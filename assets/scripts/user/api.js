@@ -4,7 +4,7 @@ const userObject = require('../user.js')
 
 const signIn = function (data) {
   return $.ajax({
-    url: config.apiOrigins.production + '/sign-in',
+    url: config.apiOrigin + '/sign-in',
     method: 'POST',
     headers: {
       contentType: 'application/json'
@@ -15,7 +15,7 @@ const signIn = function (data) {
 
 const signUp = function (data) {
   return $.ajax({
-    url: config.apiOrigins.production + '/sign-up',
+    url: config.apiOrigin + '/sign-up',
     method: 'POST',
     headers: {
       contentType: 'application/json'
@@ -26,7 +26,7 @@ const signUp = function (data) {
 
 const signOut = function () {
   return $.ajax({
-    url: config.apiOrigins.production + '/sign-out/' + userObject.user.id,
+    url: config.apiOrigin + '/sign-out/' + userObject.user.id,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',
@@ -37,7 +37,7 @@ const signOut = function () {
 
 const changePassword = function (data) {
   return $.ajax({
-    url: config.apiOrigins.production + '/change-password/' + userObject.user.id,
+    url: config.apiOrigin + '/change-password/' + userObject.user.id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
