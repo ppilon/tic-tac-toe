@@ -18,4 +18,5 @@ export let user = {
 if ('user' in sessionStorage) {
   const userData = JSON.parse(sessionStorage.getItem('user'))
   user.login(userData.email, userData.token, userData.id)
+  $('.user-email').text(user.email)
 }
