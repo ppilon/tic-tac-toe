@@ -6,6 +6,7 @@ const onSignInSuccess = function (data) {
   notifications.newNotification('success', 'Successful Login')
   store.user.login(data.user.email, data.user.token, data.user.id)
   $('.user-email').text(store.user.email)
+  $('#login-form .form-control').val('')
   switchView()
 }
 const onSignInError = function (jqXHR, textStatus, errorThrown) {
@@ -41,8 +42,8 @@ const onChangePasswordError = function () {
 }
 
 const switchView = function () {
-  $('.game-view').toggle()
-  $('.auth-view').toggle()
+  $('.game-view').toggle("slow")
+  $('.auth-view').toggle("slow")
   $('.user-nav').toggle()
 }
 
