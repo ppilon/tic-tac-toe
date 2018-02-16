@@ -1,15 +1,15 @@
 'use strict'
 
-const imgsPath = '/assets/imgs/'
+const imgsPath = 'https://i.imgur.com/'
 
 const game = {
   currentMove: 'x',
   pieces: [
-    imgsPath + 'eagle.png',
-    imgsPath + 'owl.png',
-    imgsPath + 'parrot.png',
-    imgsPath + 'penguin.png',
-    imgsPath + 'zebra.png'
+    imgsPath + 'oQZKWju.png',
+    imgsPath + 'oXtcrhV.png',
+    imgsPath + '859ytyE.png',
+    imgsPath + 'V1JsFBp.png',
+    imgsPath + 'mhS8Js1.png'
   ],
   setGameData: function (data) {
     this.id = data.game.id
