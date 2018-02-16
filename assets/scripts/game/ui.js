@@ -99,9 +99,7 @@ const getWinner = function (cells) {
 }
 
 const onGetGamesSuccess = function (data) {
-  $('#player-game-count').append(data.games.length)
   const gamesCompleted = data.games.filter(game => game.over === true)
-  $('#player-game-completed').append(gamesCompleted.length)
   let xGamesWon = 0
   data.games.forEach(game => {
     if (getWinner(game.cells) === 'x' && game.over === true) {
@@ -109,7 +107,11 @@ const onGetGamesSuccess = function (data) {
     }
   })
   const percentage = Math.round((xGamesWon / gamesCompleted.length) * 100)
-  $('#player-game-win-percent').append(percentage + '%')
+  $('.loader').hide('slow', function () {
+  })
+  $('.player-game-win-percent').text(percentage + '%')
+  $('.player-game-completed').text(gamesCompleted.length)
+  $('.player-game-count').text(data.games.length)
 }
 
 module.exports = {
