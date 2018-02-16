@@ -49,28 +49,28 @@ const onPlayerMoveError = function () {
 
 const getWinner = function (cells) {
   if (cells[0] === 'x' && cells[1] === 'x' && cells[2] === 'x') {
-    return 'o'
+    return 'x'
   }
   if (cells[3] === 'x' && cells[4] === 'x' && cells[5] === 'x') {
-    return 'o'
+    return 'x'
   }
   if (cells[6] === 'x' && cells[7] === 'x' && cells[8] === 'x') {
-    return 'o'
+    return 'x'
   }
   if (cells[0] === 'x' && cells[3] === 'x' && cells[6] === 'x') {
-    return 'o'
+    return 'x'
   }
   if (cells[1] === 'x' && cells[4] === 'x' && cells[7] === 'x') {
-    return 'o'
+    return 'x'
   }
   if (cells[2] === 'x' && cells[5] === 'x' && cells[8] === 'x') {
-    return 'o'
+    return 'x'
   }
   if (cells[0] === 'x' && cells[4] === 'x' && cells[8] === 'x') {
-    return 'o'
+    return 'x'
   }
   if (cells[2] === 'x' && cells[4] === 'x' && cells[6] === 'x') {
-    return 'o'
+    return 'x'
   }
   if (cells[0] === 'o' && cells[1] === 'o' && cells[2] === 'o') {
     return 'o'
@@ -99,7 +99,6 @@ const getWinner = function (cells) {
 }
 
 const onGetGamesSuccess = function (data) {
-  console.log(data.games)
   $('#player-game-count').append(data.games.length)
   const gamesCompleted = data.games.filter(game => game.over === true)
   $('#player-game-completed').append(gamesCompleted.length)
