@@ -16,6 +16,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   position: relative;
 }
 
+.logo{
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: 5px;
+}
+
 .form-control{
   display: block;
   margin-left: auto;
