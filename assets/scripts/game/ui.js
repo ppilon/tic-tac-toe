@@ -1,6 +1,6 @@
-const gameData = require('../game')
 const notifications = require('../notifications')
 const api = require('./api')
+const gameData = require('../game')
 
 const onCreateGameSuccess = function (data) {
   gameData.game.setGameData(data)
@@ -8,9 +8,21 @@ const onCreateGameSuccess = function (data) {
   chooseGamePiece()
 }
 
+const buildPreviousGame = function (cells) {
+  for (let i = 0; i < cells.length; i++) {
+    if (cells[i] === 'x') {
+      $('#' + i).html('<img src="' + gameData.game.player_x.user_piece + '"class="game-board-piece"><span class="x-o">' + cells[i] + '</span>')
+    } else if (cells[i] === 'o') {
+      $('#' + i).html('<img src="' + gameData.game.player_o.user_piece + '"class="game-board-piece"><span class="x-o">' + cells[i] + '</span>')
+    }
+  }
+  if (gameData.game.hasWinner()) {
+    $('#game-board .box-footer p').text('User' + ' ' + gameData.game.currentMove.toUpperCase() + ' ' + 'Wins')
+  }
+}
+
 const onPlayerMoveSuccess = function (data) {
   gameData.game.updateCells(data)
-
   if (gameData.game.currentMove === 'x') {
     $('#' + gameData.game.boardPiece).html('<img src="' + gameData.game.player_x.user_piece + '" class="game-board-piece">' + '<span class="x-o">' + gameData.game.currentMove + '</span>')
   } else {
@@ -119,5 +131,6 @@ module.exports = {
   onPlayerMoveSuccess,
   onPlayerMoveError,
   showGameBoard,
-  onGetGamesSuccess
+  onGetGamesSuccess,
+  buildPreviousGame
 }

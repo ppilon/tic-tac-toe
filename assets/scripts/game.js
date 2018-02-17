@@ -21,9 +21,11 @@ const game = {
     } else {
       this.player_o = {}
     }
+    sessionStorage.setItem('game', JSON.stringify(this))
   },
   updateCells: function (data) {
     this.cells = data.game.cells
+    sessionStorage.setItem('game', JSON.stringify(this))
   },
   switchTurn: function () {
     if (this.currentMove === 'x') {
@@ -99,7 +101,17 @@ const game = {
     }
   }
 }
-
 module.exports = {
   game
+}
+
+if ('game' in sessionStorage) {
+  const gameUi = require('./game/ui')
+  const gameData = {
+    game: JSON.parse(sessionStorage.getItem('game'))
+  }
+  game.setGameData(gameData)
+  $('.game-menu').toggle()
+  $('.pieces').css('display', 'block')
+  gameUi.buildPreviousGame(gameData.game.cells)
 }
