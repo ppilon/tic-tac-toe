@@ -169,6 +169,25 @@ bottom: 40px;
 left: 300px;
 }
 
+.join-game-form > .box-body{
+  text-align: center;
+  line-height: 60px;
+}
+
+.join-game-form > .box-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit{
+  background-color: $texas-orange;
+  color: white;
+  border: 0;
+  height: 30px;
+  width: 90%;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
