@@ -33,14 +33,15 @@ const onPlayerMove = function () {
 const onPieceSelect = function () {
   if (!gameObject.game.player_x.hasOwnProperty('user_piece')) {
     gameObject.game.player_x.user_piece = $(this).attr('src')
-    console.log('x ran')
-  } else {
-    console.log('o ran')
+    $('#game-board .box-body .game-menu').html('<h3>Player O Choose a Game Piece </h3>')
+    gameObject.game.pieces.forEach(function (element) {
+      $('#game-board .box-body .game-menu').append('<img src="' + element + '" class="user-icons">')
+    })
+  } else if (!gameObject.game.player_o.hasOwnProperty('user_piece')) {
     gameObject.game.player_o.user_piece = $(this).attr('src')
     ui.showGameBoard()
   }
 }
-
 const onGetGames = function () {
   api.getGames()
     .then(ui.onGetGamesSuccess)

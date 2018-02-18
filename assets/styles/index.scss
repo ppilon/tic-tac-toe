@@ -149,6 +149,20 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
     animation: spin 2s linear infinite;
 }
 
+.new-game{
+  background: transparent;
+  border: 1px solid $texas-orange;
+  height: 70px;
+  width: 100%;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $texas-orange;
+  font-size: 24px;
+  border-radius: 4px;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

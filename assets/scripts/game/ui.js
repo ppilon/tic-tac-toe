@@ -1,10 +1,9 @@
 const notifications = require('../notifications')
-const api = require('./api')
 const gameData = require('../game')
-
+const gameApi = require('./api')
 const onCreateGameSuccess = function (data) {
   gameData.game.setGameData(data)
-  $('.game-menu > a').toggle()
+  $('.game-piece').html(' ')
   chooseGamePiece()
 }
 
@@ -30,7 +29,7 @@ const onPlayerMoveSuccess = function (data) {
   }
   if (gameData.game.hasWinner()) {
     $('#game-board .box-footer p').text('User' + ' ' + gameData.game.currentMove.toUpperCase() + ' ' + 'Wins')
-    api.gameOver()
+    gameApi.gameOver()
   } else if (gameData.game.cells.every(checkForTie)) {
     $('#game-board .box-footer p').text('Tie Game!')
   } else {
@@ -39,13 +38,16 @@ const onPlayerMoveSuccess = function (data) {
 }
 
 const showGameBoard = function () {
+  console.log('show game board')
   $('.pieces').toggle()
   $('.user-icons').toggle()
   $('.game-menu h3').toggle()
 }
 
 const chooseGamePiece = function () {
-  $('#game-board .box-body .game-menu').html('<h3> Choose a Game Piece </h3>')
+  $('.pieces').hide()
+  $('.game-menu').show()
+  $('#game-board .box-body .game-menu').html('<h3>Player X Choose a Game Piece </h3>')
   gameData.game.pieces.forEach(function (element) {
     $('#game-board .box-body .game-menu').append('<img src="' + element + '" class="user-icons">')
   })
@@ -134,3 +136,5 @@ module.exports = {
   onGetGamesSuccess,
   buildPreviousGame
 }
+
+console.log(gameApi)

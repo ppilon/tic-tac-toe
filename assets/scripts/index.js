@@ -31,6 +31,6 @@ $(() => {
   $('#change-pass-form').on('submit', UserEvents.onChangePassword)
   $('#sign-out').on('click', UserEvents.onSignOut)
   $('.game-piece').on('click', GameEvents.onPlayerMove)
-  $('.game-menu a').on('click', GameEvents.onCreateGame)
+  $('.new-game').on('click', GameEvents.onCreateGame)
   $('body').on('click', '.user-icons', GameEvents.onPieceSelect)
 })

@@ -25,7 +25,7 @@ const getGames = function () {
   })
 }
 
-const gameOver = function () {
+export const gameOver = function () {
   return $.ajax({
     url: config.apiOrigin + '/games/' + gameObject.game.id,
     method: 'PATCH',
