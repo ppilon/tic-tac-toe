@@ -14,6 +14,17 @@ const createGame = function () {
   })
 }
 
+export const joinGame = function (gameId) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + gameId,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + userObject.user.token
+    }
+  })
+}
+
 const getGames = function () {
   return $.ajax({
     url: config.apiOrigin + '/games',
@@ -57,5 +68,6 @@ module.exports = {
   createGame,
   updateGameBoard,
   getGames,
-  gameOver
+  gameOver,
+  joinGame
 }

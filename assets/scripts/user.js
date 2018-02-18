@@ -20,3 +20,4 @@ if ('user' in sessionStorage) {
   user.login(userData.email, userData.token, userData.id)
   $('.user-email').text(user.email)
 }
+console.log(user)

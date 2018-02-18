@@ -28,6 +28,7 @@ $(() => {
     $('#login-box').toggle()
     $('#signup-box').toggle()
   })
+  $('.join-game-form').on('submit', GameEvents.onJoinGame)
   $('#change-pass-form').on('submit', UserEvents.onChangePassword)
   $('#sign-out').on('click', UserEvents.onSignOut)
   $('.game-piece').on('click', GameEvents.onPlayerMove)

@@ -163,6 +163,12 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   border-radius: 4px;
 }
 
+#display-game-id {
+position: relative;
+bottom: 40px;
+left: 300px;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

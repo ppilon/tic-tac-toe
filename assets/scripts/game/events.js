@@ -30,6 +30,15 @@ const onPlayerMove = function () {
   }
 }
 
+const onJoinGame = function (event) {
+  event.preventDefault()
+
+  const gameId = document.getElementById('game-id').value
+
+  api.joinGame(gameId)
+    .then(ui.onJoinGameSuccess)
+}
+
 const onPieceSelect = function () {
   if (!gameObject.game.player_x.hasOwnProperty('user_piece')) {
     gameObject.game.player_x.user_piece = $(this).attr('src')
@@ -51,5 +60,6 @@ module.exports = {
   onCreateGame,
   onPlayerMove,
   onPieceSelect,
-  onGetGames
+  onGetGames,
+  onJoinGame
 }

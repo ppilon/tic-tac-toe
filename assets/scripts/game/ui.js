@@ -4,7 +4,13 @@ const gameApi = require('./api')
 const onCreateGameSuccess = function (data) {
   gameData.game.setGameData(data)
   $('.game-piece').html(' ')
+  $('#display-game-id').text(data.game.id)
   chooseGamePiece()
+}
+
+const onJoinGameSuccess = function (data) {
+  console.log(data)
+  $('#display-game-id').text(data.game.id)
 }
 
 const buildPreviousGame = function (cells) {
@@ -134,7 +140,8 @@ module.exports = {
   onPlayerMoveError,
   showGameBoard,
   onGetGamesSuccess,
-  buildPreviousGame
+  buildPreviousGame,
+  onJoinGameSuccess
 }
 
 console.log(gameApi)
