@@ -13,6 +13,11 @@ const onSignInError = function (jqXHR, textStatus, errorThrown) {
   notifications.newNotification('danger', 'Username or Password Incorrect')
 }
 
+const toggleSignup = function () {
+  $('#login-box').toggle()
+  $('#signup-box').toggle()
+}
+
 const onSignUpSuccess = function () {
   console.log('success!!!!!')
   $('#login-box').toggle()
@@ -55,5 +60,6 @@ module.exports = {
   onSignOutSuccess,
   onChangePasswordSuccess,
   onChangePasswordError,
-  switchView
+  switchView,
+  toggleSignup
 }

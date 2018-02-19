@@ -1,8 +1,8 @@
 #login-box {
   display: block;
+  height: 300px;
   margin-left: auto;
   margin-right: auto;
-  height: 300px;
   width: 300px;
 }
 
@@ -16,7 +16,7 @@
   color: gray;
   font-size: 20px;
   line-height: 50px;
-  margin: 0px;
+  margin: 0;
 }
 
 .fa-exclamation{
@@ -29,18 +29,24 @@
   color: $white;
   display: block;
   height: 30px;
-  outline: none;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
   margin-top: 10px;
+  outline: none;
   width: 95%;
 }
 
-.signup-link{
+.signup-login-link {
   color: $texas-orange;
+  left: 230px;
   position: relative;
   top: 30px;
-  left: 230px;
+}
+
+.login-link {
+  left: 400px;
+  position: relative;
+  top: 50px;
 }
 
 #email-form-group{

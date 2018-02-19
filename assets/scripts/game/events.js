@@ -56,10 +56,18 @@ const onGetGames = function () {
     .then(ui.onGetGamesSuccess)
 }
 
+const gameHandlers = function () {
+  $('.join-game-form').on('submit', onJoinGame)
+  $('.game-piece').on('click', onPlayerMove)
+  $('.new-game').on('click', onCreateGame)
+  $('body').on('click', '.user-icons', onPieceSelect)
+}
+
 module.exports = {
   onCreateGame,
   onPlayerMove,
   onPieceSelect,
   onGetGames,
-  onJoinGame
+  onJoinGame,
+  gameHandlers
 }

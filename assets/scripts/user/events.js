@@ -36,9 +36,18 @@ const onChangePassword = function (event) {
     .catch(ui.onChangePasswordError)
 }
 
+const userHandlers = function () {
+  $('#login-form').on('submit', onSignIn)
+  $('#signup-form').on('submit', onSignUp)
+  $('#change-pass-form').on('submit', onChangePassword)
+  $('#sign-out').on('click', onSignOut)
+  $('.signup-login-link').on('click', ui.toggleSignup)
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  userHandlers
 }
