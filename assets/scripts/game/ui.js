@@ -4,6 +4,7 @@ const gameApi = require('./api')
 const onCreateGameSuccess = function (data) {
   gameData.game.setGameData(data)
   $('.game-piece').html(' ')
+  $('#game-board .box-footer p').html(' ')
   $('#display-game-id').text(data.game.id)
   chooseGamePiece()
 }
