@@ -2,25 +2,26 @@
 
 const imgsPath = 'https://i.imgur.com/'
 
+const pieces = [
+  imgsPath + 'oQZKWju.png',
+  imgsPath + 'oXtcrhV.png',
+  imgsPath + '859ytyE.png',
+  imgsPath + 'V1JsFBp.png',
+  imgsPath + 'mhS8Js1.png'
+]
+
 const game = {
   currentMove: 'x',
-  pieces: [
-    imgsPath + 'oQZKWju.png',
-    imgsPath + 'oXtcrhV.png',
-    imgsPath + '859ytyE.png',
-    imgsPath + 'V1JsFBp.png',
-    imgsPath + 'mhS8Js1.png'
-  ],
+  player_x_piece: '',
+  player_o_piece: '',
   setGameData: function (data) {
     this.id = data.game.id
     this.cells = data.game.cells
     this.over = data.game.over
     this.player_x = data.game.player_x
-    if (data.game.player_o !== null) {
-      this.player_o = data.game.player_o
-    } else {
-      this.player_o = {}
-    }
+    this.player_o = data.game.player_o
+    this.player_x_piece = pieces[Math.floor(Math.random() * 4) + 0]
+    this.player_o_piece = pieces[Math.floor(Math.random() * 4) + 0]
     sessionStorage.setItem('game', JSON.stringify(this))
   },
   updateCells: function (data) {
@@ -101,8 +102,20 @@ const game = {
     }
   }
 }
+
+const randomizeGamePieces = function () {
+  const playerXRand = (Math.random() * 4) + 0
+  let playerORand = (Math.random() * 4) + 0
+
+  if (playerXRand === playerORand) {
+    playerORand = (Math.random() * 4) + 0
+  }
+  return
+}
 module.exports = {
-  game
+  game,
+  pieces,
+  randomizeGamePieces
 }
 
 if ('game' in sessionStorage) {

@@ -17,9 +17,9 @@ const onJoinGameSuccess = function (data) {
 const buildPreviousGame = function (cells) {
   for (let i = 0; i < cells.length; i++) {
     if (cells[i] === 'x') {
-      $('#' + i).html('<img src="' + gameData.game.player_x.user_piece + '"class="game-board-piece"><span class="x-o">' + cells[i] + '</span>')
+      $('#' + i).html('<img src="' + gameData.game.player_x_piece + '"class="game-board-piece"><span class="x-o">' + cells[i] + '</span>')
     } else if (cells[i] === 'o') {
-      $('#' + i).html('<img src="' + gameData.game.player_o.user_piece + '"class="game-board-piece"><span class="x-o">' + cells[i] + '</span>')
+      $('#' + i).html('<img src="' + gameData.game.player_o_piece + '"class="game-board-piece"><span class="x-o">' + cells[i] + '</span>')
     }
   }
   if (gameData.game.hasWinner()) {
@@ -30,9 +30,9 @@ const buildPreviousGame = function (cells) {
 const onPlayerMoveSuccess = function (data) {
   gameData.game.updateCells(data)
   if (gameData.game.currentMove === 'x') {
-    $('#' + gameData.game.boardPiece).html('<img src="' + gameData.game.player_x.user_piece + '" class="game-board-piece">' + '<span class="x-o">' + gameData.game.currentMove + '</span>')
+    $('#' + gameData.game.boardPiece).html('<img src="' + gameData.game.player_x_piece + '" class="game-board-piece">' + '<span class="x-o">' + gameData.game.currentMove + '</span>')
   } else {
-    $('#' + gameData.game.boardPiece).html('<img src="' + gameData.game.player_o.user_piece + '" class="game-board-piece">' + '<span class="x-o">' + gameData.game.currentMove + '</span>')
+    $('#' + gameData.game.boardPiece).html('<img src="' + gameData.game.player_o_piece + '" class="game-board-piece">' + '<span class="x-o">' + gameData.game.currentMove + '</span>')
   }
   if (gameData.game.hasWinner()) {
     $('#game-board .box-footer p').text('User' + ' ' + gameData.game.currentMove.toUpperCase() + ' ' + 'Wins')
@@ -55,7 +55,7 @@ const chooseGamePiece = function () {
   $('.pieces').hide()
   $('.game-menu').show()
   $('#game-board .box-body .game-menu').html('<h3>Player X Choose a Game Piece </h3>')
-  gameData.game.pieces.forEach(function (element) {
+  gameData.pieces.forEach(function (element) {
     $('#game-board .box-body .game-menu').append('<img src="' + element + '" class="user-icons">')
   })
 }

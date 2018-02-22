@@ -40,16 +40,23 @@ const onJoinGame = function (event) {
 }
 
 const onPieceSelect = function () {
-  if (!gameObject.game.player_x.hasOwnProperty('user_piece')) {
-    gameObject.game.player_x.user_piece = $(this).attr('src')
+  $('#game-board .box-body .game-menu').html('<h3>Player O Choose a Game Piece </h3>')
+  gameObject.pieces.forEach(function (element) {
+    $('#game-board .box-body .game-menu').append('<img src="' + element + '" class="user-icons">')
+  })
+  if (gameObject.game.currentMove === 'x') {
+    gameObject.game.currentMove = 'o'
+    gameObject.game.player_x_piece = $(this).attr('src')
     $('#game-board .box-body .game-menu').html('<h3>Player O Choose a Game Piece </h3>')
-    gameObject.game.pieces.forEach(function (element) {
+    gameObject.pieces.forEach(function (element) {
       $('#game-board .box-body .game-menu').append('<img src="' + element + '" class="user-icons">')
     })
-  } else if (!gameObject.game.player_o.hasOwnProperty('user_piece')) {
-    gameObject.game.player_o.user_piece = $(this).attr('src')
+  } else if (gameObject.game.currentMove === 'o') {
+    gameObject.game.currentMove = 'x'
+    gameObject.game.player_o_piece = $(this).attr('src')
     ui.showGameBoard()
   }
+  console.log(gameObject)
 }
 const onGetGames = function () {
   api.getGames()
