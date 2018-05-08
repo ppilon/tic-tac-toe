@@ -8,7 +8,7 @@ const onSignIn = function (event) {
   event.preventDefault()
 
   const data = getFormFields(this)
-  console.log(data)
+  
   api.signIn(data)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInError)

@@ -56,7 +56,6 @@ const onPieceSelect = function () {
     gameObject.game.player_o_piece = $(this).attr('src')
     ui.showGameBoard()
   }
-  console.log(gameObject)
 }
 const onGetGames = function () {
   api.getGames()

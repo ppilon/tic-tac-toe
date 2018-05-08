@@ -20,7 +20,6 @@ const toggleSignup = function () {
 }
 
 const onSignUpSuccess = function () {
-  console.log('success!!!!!')
   $('#login-box').toggle()
   $('#signup-box').toggle()
   notifications.newNotification('success', 'Signup Successful')
@@ -28,7 +27,6 @@ const onSignUpSuccess = function () {
 }
 
 const onSignUpError = function (jqXHR, textStatus, errorThrown) {
-  console.log(this.url)
   notifications.newNotification('danger', 'Signup Failed')
 }
 

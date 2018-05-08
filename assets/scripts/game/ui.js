@@ -10,7 +10,6 @@ const onCreateGameSuccess = function (data) {
 }
 
 const onJoinGameSuccess = function (data) {
-  console.log(data)
   $('#display-game-id').text(data.game.id)
 }
 
@@ -45,7 +44,6 @@ const onPlayerMoveSuccess = function (data) {
 }
 
 const showGameBoard = function () {
-  console.log('show game board')
   $('.pieces').toggle()
   $('.user-icons').toggle()
   $('.game-menu h3').toggle()
@@ -144,5 +142,3 @@ module.exports = {
   buildPreviousGame,
   onJoinGameSuccess
 }
-
-console.log(gameApi)
