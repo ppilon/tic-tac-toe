@@ -8,6 +8,7 @@ const onSignInSuccess = function (data) {
   $('.user-email').text(store.user.email)
   $('#login-form .form-control').val('')
   switchView()
+  GameEvents.onGetGames()
 }
 const onSignInError = function (jqXHR, textStatus, errorThrown) {
   notifications.newNotification('danger', 'Username or Password Incorrect')
